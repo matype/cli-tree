@@ -1,0 +1,21 @@
+{
+  "name": "cli-tree",
+  "version": "0.0.1",
+  "description": "Object tree viewer for the CLI",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/morishitter/cli-tree/git"
+  },
+  "keywords": ["cli","tree"],
+  "author": "Masaaki Morishita",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "tap": "*",
+    "tape": "*"
+  }
+}
