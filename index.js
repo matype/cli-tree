@@ -6,20 +6,39 @@ module.exports = function (obj) {
     'last-node': '└'
   }
 
-  return expand(obj)
+  console.log(allNodeList(obj))
+
+  return lastNodeList(obj)
 };
 
-var node = []
-var objNode = []
+function lastNodeList (obj) {
+  var nodes = []
 
-function expand (obj) {
-  for (var prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
-      if (isObject(obj[prop])) expand(obj[prop])
-      else node.push(prop)
+  function node (obj) {
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        if (isObject(obj[prop])) node(obj[prop])
+          else nodes.push(prop)
+      }
     }
+    return nodes
   }
-  return node
+
+  return node(obj)
+}
+
+function allNodeList (obj) {
+  var ret = []
+
+  function walk (obj) {
+    for (var prop in obj) {
+      ret.push(prop)
+      if (isObject(obj[prop])) walk(obj[prop])
+    }
+    return ret
+  }
+
+  return walk(obj)
 }
 
 function isObject (val) {
