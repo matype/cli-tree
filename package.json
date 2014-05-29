@@ -10,10 +10,14 @@
     "type": "git",
     "url": "git://github.com/morishitter/cli-tree/git"
   },
-  "keywords": ["cli","tree"],
+  "keywords": [
+    "cli",
+    "tree"
+  ],
   "author": "Masaaki Morishita",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "tap": "*",
     "tape": "*"
