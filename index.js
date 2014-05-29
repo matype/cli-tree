@@ -3,7 +3,7 @@ module.exports = function (obj) {
   if (obj.objName) console.log('[' + obj.objName + ']')
 
   var chars = {
-    'hr': '├──',
+    'hr': '├───',
     'node': '├',
     'last-node': '└'
   }
