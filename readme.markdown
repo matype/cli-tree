@@ -1,4 +1,4 @@
-# cli-tree [![Build Status](https://travis-ci.org/morishitter/cli-tree.svg)](https://travis-ci.org/morishitter/cli-tree)
+# cli-tree
 
 Object tree viewer for the CLI
 
@@ -9,6 +9,40 @@ $ npm install cli-tree
 ```
 
 ## Example
+
+```javascript
+var tree = require('cli-tree');
+
+var objct = {
+  propA: "aaaaaaa",
+  propB: "bbbbbbb",
+  propC: {
+    propE: "eeeeee",
+    propF: {
+      propG: {
+        propI: "iiiiii"
+      },
+      propH: "hhhhhh"
+    }
+  },
+  propD: "dddddd",
+  objName: "testObject"
+}
+
+tree(object);
+/*
+  [testObject]
+  ├─── propA
+  ├─── propB
+  ├─── propC
+    ├─── propE
+      ├─── propF
+      ├─── propG
+        ├─── propI
+      ├─── propH
+  ├─── propD
+*/
+```
 
 ## License
 
