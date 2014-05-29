@@ -1,41 +1,30 @@
 
-var inspector = require('obj-inspector')
-
 module.exports = function (obj) {
+  if (obj.objName) console.log('[' + obj.objName + ']')
 
-  // console.log(allNodeList(obj))
-  inspect(obj)
-  console.log(depthOf(obj))
-
-  // return lastNodeList(obj)
-};
-
-var chars = {
-  'hr': '├──',
-  'node': '├',
-  'last-node': '└'
-}
-
-function inspect (obj) {
-  var ret = []
-
-  inspector(obj)
-  var depth = 0;
-  function walk (obj) {
-    for (var prop in obj) {
-      if (!isObject(obj[prop])) {
-        console.log(chars['hr']+prop)
-      }
-      else console.log('  '+ chars['node'] + prop)
-      // if (isObject(prop)) console.log(prop)
-      ret.push(prop)
-      if (isObject(obj[prop])) walk(obj[prop])
-    }
-    return ret
+  var chars = {
+    'hr': '├──',
+    'node': '├',
+    'last-node': '└'
   }
 
-  return walk(obj)
-}
+  var objDepth = depthOf(obj)
+
+  function walk (obj) {
+    for (var prop in obj) {
+      if (prop === 'objName') continue;
+      for (var i = 0; i <= objDepth; i++) {
+        if (depthOf(obj) === objDepth - i) {
+          console.log(Array(i+1).join('  ') + chars['hr'] + ' ' + prop)
+        }
+      }
+
+      if (isObject(obj[prop])) walk(obj[prop])
+    }
+  }
+
+  walk(obj)
+};
 
 function depthOf (object) {
   var level = 1;

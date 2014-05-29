@@ -13,7 +13,8 @@ var obj = {
       h: "bar"
     }
   },
-  d: "hoge"
+  d: "hoge",
+  objName: "testObject"
 }
 
-console.log(tree(obj))
+tree(obj)
