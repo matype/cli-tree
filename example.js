@@ -1,20 +1,20 @@
 
 var tree = require('./index')
 
-var obj = {
-  a: "beep",
-  b: "boop",
-  c: {
-    e: "piyo",
-    f: {
-      g: {
-        i: "foo"
+var objct = {
+  propA: "aaaaaaa",
+  propB: "bbbbbbb",
+  propC: {
+    propE: "eeeeee",
+    propF: {
+      propG: {
+        propI: "iiiiii"
       },
-      h: "bar"
+      propH: "hhhhhh"
     }
   },
-  d: "hoge",
+  propD: "dddddd",
   objName: "testObject"
 }
 
-tree(obj)
+tree(objct)
